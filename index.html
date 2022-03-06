@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://Delta27222.github.io/Weather_API/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Web site created using create-snowpack-app"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://Delta27222.github.io/Weather_API/_dist_/index.css"
+    />
+    <style>
+       :root {
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+      body {  
+        margin: 16px;  
+        font-size: 100%;  
+        font-family: 'Open Sans', sans-serif;  
+        /* color: white;   */
+        height: 100%;  
+        background: linear-gradient(to bottom, rgb(43,50,178) 0%, rgb(20,136,204) 100%);  
+        background-repeat: no-repeat;  
+        background-attachment: fixed;  
+      }
+
+    </style>
+    <title>WeatherFast</title>
+  </head>
+  <body>
+    <!--
+      This HTML file is a template.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+
+      Start modyfing from here.
+    -->
+    <div class="py-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="flex  md:space-x-80 ">
+          <div class="logo-mockup" aria-label="Logo" absolute>
+            <img class="h-10 md:h-20 " src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/774/6922994774_e506db88-121f-4142-b98e-f7083e2441e0.png?cb=1646506318" alt="">
+          </div>
+          <p class="hidden md:text-xl md:inline text-gray-300 pt-6 ">
+            Weather app using <a href="https://openweathermap.org/api" class="hover:text-black">OpenWeather's APIs</a>
+          </p>
+        </div>
+        <div id="container-input" class="flex-wrap my-6 mx-2 flex space-x-5 md:m-10 md:flex md:space-x-40 ">
+          <input  class="input_city bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 placeholder:italic w-40 h-8 md:w-3/5 md:h-10" placeholder="Search for a city..." id="input-city" type="text" value="">
+          <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded box-border ml-14 h-8 md:h-10" type="button" id="btn-city">
+            Submit
+          </button>
+          
+        </div>
+
+        <div id='alert' class=" text-left w-1/2 mx-auto">
+          
+        </div>
+
+        <div id="message" class=" text-left w-1/2 mx-auto" >
+        </div>
+
+        <div id="container_principal">
+
+        </div>
+
+        <div id="container_btn_clear">
+          <button id="clear" class='hola shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded box-border ml-14 h-8 md:h-10 hidden'>Clear</button>
+        </div>
+        
+        <!-- <p class="mt-4 max-w-3xl text-xl leading-7 text-gray-300 mx-auto">
+          I programmed this project. I took like example Jon Keeping's desing. Thanks to him.
+        </p>
+        <p class="mt-4 max-w-3xl text-xl leading-7 mx-auto text-gray-300">
+          Link -> 
+          <a href="https://medium.com/@JonUK" class="hover:text-black">https://medium.com/@JonUK</a>
+        </p> -->
+      </div>
+    </div>
+
+    <!-- Add more scripts here -->
+    <script type="module" src="https://Delta27222.github.io/Weather_API/_dist_/index.js"></script>
+  </body>
+</html>
