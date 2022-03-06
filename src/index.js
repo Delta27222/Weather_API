@@ -240,6 +240,8 @@ btnClear.addEventListener('click', (event) => {
     // Removemos los mensajes por si las moscas
     removeMessage()
 
+    allIds = [];
+
 })
 
 // const div_container_input_city = document.querySelector('#container-input');
