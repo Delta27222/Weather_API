@@ -114,3 +114,15 @@ export function valueInputCity(input) {
         return true;
     }
 }
+
+
+export function insertBeforeNode(newNode) {
+    // conseguimoos el contenedor, que tiene a todas las cartas del clima
+    const fatherNode = document.querySelector('#container_principal'); 
+
+    // En constramos al primer hijo, antes de este sera donde queremos agregar la proxima carta
+    const firstSon = fatherNode.firstChild;
+
+    // Hacemos uso de "insertBefore" para agregar el nuevo nodo antes del primer hijo
+    fatherNode.insertBefore(newNode, firstSon); 
+}
