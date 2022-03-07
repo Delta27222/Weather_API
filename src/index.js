@@ -36,19 +36,19 @@ function search_City() {
             // NameCity
             const nameCity = document.createElement('h2');
             nameCity.textContent = name +', '+ sys.country;
-            nameCity.className = 'text-5xl '
+            nameCity.className = 'text-3xl md:text-5xl '
 
             // Today
             const tiempoTranscurrido = Date.now();
             const hoy = new Date(tiempoTranscurrido);
             const today = document.createElement('p');
             today.textContent = hoy.toDateString();
-            today.className = 'text-lg p-2'
+            today.className = 'text-sm m-1 md:text-lg'
             
             // Div
             const div_City_Today = document.createElement('div'); 
             div_City_Today.append(nameCity, today); 
-            div_City_Today.className = 'text-center self-center md:text-left '
+            div_City_Today.className = ' text-left '
 
         // ---------------------------------------------------------
             // Icon, description, degree
@@ -56,12 +56,12 @@ function search_City() {
             // Icon img
             const iconWeather = document.createElement('img');
             iconWeather.src = `${iconImg}${weather[0].icon}@2x.png`;
-            iconWeather.className = 'transform scale-150'
+            iconWeather.className = 'transform scale-125 md:scale-150'
 
             // Degrees
             const degrees = document.createElement('h3');
             degrees.textContent = Math.trunc(main.temp)+ '°';
-            degrees.className = 'text-7xl'
+            degrees.className = 'text-5xl my-auto mx-auto md:text-7xl'
             
             // Description
             const descriptionWeather = document.createElement('p'); 
@@ -70,13 +70,13 @@ function search_City() {
             // Div degree and description
             const div_Degree_Descrption = document.createElement('div');
             div_Degree_Descrption.append(degrees, descriptionWeather)
-            div_Degree_Descrption.className = 'text-center self-center md:text-left '
+            div_Degree_Descrption.className = 'text-sm my-auto md:text-left '
             
-            // Div iconWeather and Div degree and description------------------------------------------------------------------->
+            // Div iconWeather and Div degree and description------------------------------------------------------------------------------------------------------------->
             const div_Icon_Descrip = document.createElement('div');
             div_Icon_Descrip.append(iconWeather, div_Degree_Descrption);
-            div_Icon_Descrip.className = 'flex space-x-8 grid grid-flow-col auto-cols-max w-3/4  place-content-center border-r border-neutral-600'
-            
+            div_Icon_Descrip.className = 'flex grid grid-flow-col  w-full mb-5 border-b border-neutral-600 md:w-3/4 md:auto-cols-max  md:place-content-center md:border-r md:border-neutral-600 md:space-x-8 md:divide-y-0 md:border-b-0'
+
 
         // ---------------------------------------------------------
 
@@ -107,7 +107,7 @@ function search_City() {
             div_pL.append(tempLow,pL);
             
 
-            //------------------------------------------------------------------------------------------- div
+            //------------------------------------------------------------- div
 
             const div_TempHL = document.createElement('div');
             div_TempHL.className = 'my-auto'
@@ -140,7 +140,7 @@ function search_City() {
             div_cloud.className = 'text-center self-center md:text-left space-y-0.5';
             div_cloud.append(cloud,pCloud);
 
-            //------------------------------------------------------------------------------------------- div
+            //-------------------------------------------------------------- div
 
             const div_Wind_Cloud = document.createElement('div');
             div_Wind_Cloud.className = 'my-auto'
@@ -174,7 +174,7 @@ function search_City() {
             div_Sunset.className = 'text-center self-center md:text-left space-y-0.5';
             div_Sunset.append(sunset,pSunset);
 
-            //------------------------------------------------------------------------------------------- div
+            //-------------------------------------------------------------- div
 
             const div_Sunrice_Sunset = document.createElement('div');
             div_Sunrice_Sunset.className = 'my-auto'
@@ -184,19 +184,19 @@ function search_City() {
             // Div con -> High y low, Wind y Cloud, Sunrice y Sunset
 
             const div_Container = document.createElement('div');
-            div_Container.className = 'grid grid-cols-3 ';
+            div_Container.className = 'grid grid-cols-3 pb-5';
             div_Container.append(div_TempHL,div_Wind_Cloud, div_Sunrice_Sunset);
 
             // ---------------------------------------
-            // Agregamos un container para el icono y el div anterior, y lo colocamos como dos columnas
+            // Agregamos un container para el icono y el div anterior, y lo colocamos como dos columnas----------------------------------------------------
             
             const div_Container2 = document.createElement('div');
-            div_Container2.className = 'grid grid-row-2 md:grid-cols-2 ';
+            div_Container2.className = 'grid grid-row-2 border-b border-neutral-600 md:grid-cols-2  md:border-b md:border-transparent';
             div_Container2.append(div_Icon_Descrip,div_Container);
 
             // -------Agregaremos todos los div creados anteriormente en una Card 
             const card = document.createElement('div');
-            card.className = 'card bg-blue-300 h-auto w-11/12 bg-opacity-30 p-10 m-10 rounded-md hover:opacity-80'; 
+            card.className = 'card bg-blue-300 h-auto bg-opacity-30 my-6 rounded-md hover:opacity-80 w-11/12 m-auto p-5 md:m-10 md:p-10'; 
             card.append(div_City_Today,div_Container2);
             // appNode.append(card); 
 
@@ -205,7 +205,7 @@ function search_City() {
 
             // Aca agregamos el boton de clear
             const btnCle = document.querySelector('#clear'); 
-            btnCle.className = 'hola shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded box-border ml-14 h-8 md:h-10 '
+            btnCle.className = 'hola shadow m-5 bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded box-border h-8 md:h-10 '
         }else {
             createMessage(name);
         }

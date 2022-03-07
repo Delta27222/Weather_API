@@ -50,19 +50,6 @@ export function removeMessage (){
     }    
 }
 
-export function createButtonClear(){
-    const lista = document.querySelector('#container_principal'); 
-
-    if (lista.children.length == 0){
-        // Hacemos que aparezca el button 
-        const button = document.createElement('button'); 
-        button.type = 'button'; 
-        button.innerText = 'Clear'; 
-        button.className = 'hola shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded box-border ml-14 h-8 md:h-10';
-        const div = document.querySelector('#container_btn_clear');
-        div.append(button);
-    }
-}
 
 export function createMessage(name){
     const div_message = document.querySelector('#message');
