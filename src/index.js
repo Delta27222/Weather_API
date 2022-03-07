@@ -3,10 +3,10 @@ import { capitalizarPrimeraLetra } from './utilities.js';
 import {queEs} from './utilities.js'
 import {findCountry} from './utilities.js'
 import {removeMessage} from './utilities.js'
-import { createButtonClear } from './utilities.js'
 import { createMessage } from './utilities.js'
-import { createAlert } from './utilities.js'
 import { valueInputCity } from './utilities.js'
+import { insertBeforeNode } from './utilities.js'
+
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const keyApi = '&appid=15d8a25476449965ff4e8de707417366&units=metric';
@@ -26,7 +26,6 @@ function search_City() {
     .then(responseJSON => {
         
         // Funcion para crear el button de clear
-        // createButtonClear();
         const weatherData = responseJSON;
         const {name, wind, main, weather, clouds, sys, id} = weatherData;
         if (!findCountry(allIds, id)){
@@ -192,14 +191,17 @@ function search_City() {
             // Agregamos un container para el icono y el div anterior, y lo colocamos como dos columnas
             
             const div_Container2 = document.createElement('div');
-            div_Container2.className = 'grid grid-cols-2 ';
+            div_Container2.className = 'grid grid-row-2 md:grid-cols-2 ';
             div_Container2.append(div_Icon_Descrip,div_Container);
 
             // -------Agregaremos todos los div creados anteriormente en una Card 
             const card = document.createElement('div');
-            card.className = 'bg-blue-300 h-auto w-11/12 bg-opacity-30 p-10 m-10 rounded-md hover:opacity-80'; 
+            card.className = 'card bg-blue-300 h-auto w-11/12 bg-opacity-30 p-10 m-10 rounded-md hover:opacity-80'; 
             card.append(div_City_Today,div_Container2);
-            appNode.append(card); 
+            // appNode.append(card); 
+
+            insertBeforeNode(card); 
+
 
             // Aca agregamos el boton de clear
             const btnCle = document.querySelector('#clear'); 
@@ -214,14 +216,7 @@ let inputValue;
 let allIds = [];
 const btnSearch = document.querySelector("#btn-city");
 btnSearch.addEventListener('click', (event) =>{
-    removeMessage();
-    const input = document.querySelector('#input-city');
-    const aceptado = valueInputCity(input);
-    if (aceptado){
-        inputValue = input.value;
-        search_City();
-        input.value = '';
-    }
+    startSearchingCity()
 })
 
 // const div_container = document.querySelector('#container_btn_clear');
@@ -244,18 +239,22 @@ btnClear.addEventListener('click', (event) => {
 
 })
 
-// const div_container_input_city = document.querySelector('#container-input');
-// const elInput = div_container_input_city.firstChild;
-// elInput.addEventListener('keyup', function(e) {
-//   var keycode = e.keyCode || e.which;
-//   if (keycode == 13) {
-//     removeMessage();
-//     const input = document.querySelector('#input-city');
-//     const aceptado = valueInputCity(input);
-//     if (aceptado){
-//         inputValue = input.value;
-//         search_City();
-//         input.value = '';
-//     }
-//   }
-// });
+const cityInput = document.querySelector('.input_city')
+cityInput.addEventListener('keydown', (e) =>{
+    if (e.code === 'Enter') {
+        startSearchingCity()
+    }
+});
+
+function startSearchingCity() {
+    removeMessage();
+    const input = document.querySelector('#input-city');
+    const aceptado = valueInputCity(input);
+    if (aceptado){
+        inputValue = input.value;
+        search_City()
+        input.value = '';
+    }
+}
+
+
